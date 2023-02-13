@@ -1,0 +1,49 @@
+% Prototype for inserting formatted code into documents
+
+\documentclass{article}
+\title{Article with Code}
+\author{Daddy Warcrimes}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{xcolor}
+\usepackage{listings}
+
+% Defining some colors
+\definecolor{codebg}{rgb}{.87,.87,.95}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{codebg},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{darkgray},
+    stringstyle=\color{codepurple},
+    basicstyle=\sffamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% Pass the language and file name to present it as a nicely formatted box of code
+\newcommand{\codefile}[2]{\fcolorbox{darkgray}{codebg}{\begin{minipage}{\linewidth} \lstinputlisting[language=#1]{#2} \end{minipage}}}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+\maketitle
+
+% command invoked
+\codefile{Python}{p1.py}
+
+\end{document}

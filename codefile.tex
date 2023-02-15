@@ -34,9 +34,11 @@
     tabsize=2
 }
 \lstset{style=mystyle}
+\lstset{frame=lrb,xleftmargin=\fboxsep,xrightmargin=-\fboxsep}
 
 % Pass the language and file name to present it as a nicely formatted box of code
-\newcommand{\codefile}[2]{\fcolorbox{darkgray}{codebg}{\begin{minipage}{\linewidth} \lstinputlisting[language=#1]{#2} \end{minipage}}}
+% invoke using \codefile{Title of code section}{Language}{source file}
+\newcommand{\codefile}[3]{{\fcolorbox{darkgray}{codebg}{\parbox{\linewidth}{\Large{#1}}}}{\lstinputlisting[language=#2]{#3}}}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -44,6 +46,6 @@
 \maketitle
 
 % command invoked
-\codefile{Python}{p1.py}
+\codefile{A Python File}{Python}{p1.py}
 
 \end{document}
